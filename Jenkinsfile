@@ -7,15 +7,15 @@ pipeline {
   maven 'M2_HOME'
 }
 environment {
-    registry = '076892551558.dkr.ecr.us-east-1.amazonaws.com/jenkins'
-    registryCredential = 'jenkins-ecr'
+    registry = '981162472741.dkr.ecr.us-east-1.amazonaws.com/jenkins'
+    registryCredential = 'aws_ecr_id'
     dockerimage = ''
 
      NEXUS_VERSION = "nexus3"
      NEXUS_PROTOCOL = "http"
-     NEXUS_URL = "139.177.192.139:8081"
-     NEXUS_REPOSITORY = "utrains-nexus-pipeline"
-     NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+     NEXUS_URL = "3.87.206.7:8081"
+     NEXUS_REPOSITORY = "biom"
+     NEXUS_CREDENTIAL_ID = "NexusID"
      POM_VERSION = ''
 }
     stages {
@@ -24,7 +24,7 @@ environment {
             steps {
                 echo 'build & SonarQube analysis...'
                withSonarQubeEnv('SonarServer') {
-                   sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_geolocation -X'
+                   sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=CHOUPAGUY_Geolocation -X'
                }
             }
           }
